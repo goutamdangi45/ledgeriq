@@ -1,0 +1,16 @@
+# Local production-like stack with PostgreSQL:  docker compose up --build   ->  http://localhost:5000
+services:
+  db:
+    image: postgres:16-alpine
+    environment: { POSTGRES_USER: ledgeriq, POSTGRES_PASSWORD: ledgeriq, POSTGRES_DB: ledgeriq }
+    volumes: [pgdata:/var/lib/postgresql/data]
+    healthcheck: { test: ["CMD-SHELL", "pg_isready -U ledgeriq"], interval: 5s, retries: 10 }
+  web:
+    build: .
+    ports: ["5000:5000"]
+    environment:
+      DATABASE_URL: postgresql://ledgeriq:ledgeriq@db:5432/ledgeriq
+      SECRET_KEY: change-me-for-real-use
+      APP_ENV: development
+    depends_on: { db: { condition: service_healthy } }
+volumes: { pgdata: {} }
