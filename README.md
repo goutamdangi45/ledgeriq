@@ -4,7 +4,7 @@ Personal-finance web app built from the project SRS (v1.0) and use-case diagram.
 Track income and expenses, set budgets and savings goals, view dashboards/reports, get rule-based advice and
 see future predictions (next-year budget, balance after one year, projections).
 
-**Team:** Gungun Bhandari (EN24CS3010412) · Gitika Jain (EN24CS3010405)
+**Team:** Gungun Bhandari (EN24CS3010412)  - Goutam Dangi(EN24CS3010409)· Gitika Jain (EN24CS3010405)
 
 ## Features (use-case diagram → app)
 | Use case | Where |
